@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Release.Name}}
+  namespace: {{.Release.Namespace}}
+spec:
+  selector:
+    matchLabels:
+      app: bgpalerter
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bgpalerter
+    spec:
+      containers:
+      - name: bgpalerter
+        image: nttgin/bgpalerter:latest
+        volumeMounts:
+        - name: bgpalerter-config
+          mountPath: /opt/bgpalerter/config.yml
+          subPath: config.yml
+        - name: bgpalerter-prefixes
+          mountPath: /opt/bgpalerter/prefixes.yml
+          subPath: prefixes.yml
+      restartPolicy: Always
+      volumes:
+      - name: "bgpalerter-config"
+        configMap:
+          name: "bgpalerter-config"
+      - name: "bgpalerter-prefixes"
+        configMap:
+          name: "bgpalerter-prefixes"

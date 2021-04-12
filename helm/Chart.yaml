@@ -1,0 +1,6 @@
+apiVersion: v2
+name: bgpalerter
+version: 0.0.1
+description: Self-configuring BGP monitoring tool, which allows you to monitor in real-time
+home: https://github.com/nttgin/BGPalerter
+appVersion: latest

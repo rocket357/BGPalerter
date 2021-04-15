@@ -16,6 +16,8 @@ spec:
       containers:
       - name: bgpalerter
         image: nttgin/bgpalerter:latest
+        ports:
+        - containerPort: 8011
         volumeMounts:
         - name: bgpalerter-config
           mountPath: /opt/bgpalerter/config.yml

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bgpaerter-comcast
+  name: bgpalerter-comcast
   namespace: bgpalerter-comcast
   labels:
     k8s-app: bgpalerter
